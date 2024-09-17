@@ -1,0 +1,450 @@
+/* Configurações básicas */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #141414;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    text-align: center;
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 3em;
+    font-weight: bold;
+    color: #00d9ff;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    animation: text-glow 1.5s infinite alternate;
+}
+
+/* Animação de brilho para o título */
+@keyframes text-glow {
+    0% {
+        text-shadow: 0 0 10px #00d9ff, 0 0 20px #00d9ff, 0 0 30px #00d9ff;
+    }
+    100% {
+        text-shadow: 0 0 20px #00ffb3, 0 0 40px #00ffb3, 0 0 60px #00ffb3;
+    }
+}
+
+/* Formulário de busca */
+form {
+    margin-bottom: 50px;
+}
+
+input[type="text"] {
+    width: 80%;
+    padding: 15px;
+    font-size: 1.2em;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    box-shadow: 0 0 20px rgba(0, 217, 255, 0.5);
+    transition: all 0.3s ease;
+}
+
+input[type="text"]:focus {
+    box-shadow: 0 0 40px rgba(0, 255, 179, 0.9);
+}
+
+button {
+    background-color: #00d9ff;
+    color: #141414;
+    font-size: 1.2em;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+    background-color: #00ffb3;
+    transform: scale(1.1);
+    box-shadow: 0 0 20px #00ffb3;
+}
+
+/* Lista de filmes */
+#movieList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.movie {
+    background-color: #1f1f1f;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 255, 179, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    width: 220px;
+    text-align: center;
+}
+
+.movie img {
+    width: 100%;
+    border-bottom: 3px solid #00d9ff;
+    transition: transform 0.3s ease;
+}
+
+.movie:hover img {
+    transform: scale(1.1);
+}
+
+.movie h3 {
+    font-size: 1.5em;
+    padding: 15px;
+    color: #00d9ff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.movie button {
+    background-color: #00ffb3;
+    color: #141414;
+    font-size: 1em;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.movie button:hover {
+    background-color: #00d9ff;
+    transform: scale(1.05);
+}
+
+/* Detalhes do filme */
+#movieDetails {
+    max-width: 700px;
+    margin: 50px auto;
+    text-align: center;
+}
+
+#movieDetails h1 {
+    font-size: 2.5em;
+    color: #00d9ff;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+}
+
+#movieDetails img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+#movieDetails p {
+    font-size: 1.2em;
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+#movieDetails a {
+    display: inline-block;
+    background-color: #00d9ff;
+    color: #141414;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#movieDetails a:hover {
+    background-color: #00ffb3;
+    transform: scale(1.1);
+}
+
+/* Animações de entrada */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.movie, #movieDetails {
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+/* Estilo da barra superior e ícone de login */
+.top-bar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    padding: 15px 20px;
+    background-color: #141414;
+    z-index: 1000;
+}
+
+.login-icon {
+    color: #00d9ff;
+    font-size: 1.2em;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.login-icon:hover {
+    color: #00ffb3;
+}
+
+/* Estilo do botão de menu */
+.menu-btn {
+    position: fixed;
+    left: 10px;
+    top: 20px;
+    font-size: 2em;
+    cursor: pointer;
+    z-index: 1000;
+    color: #fff;
+    transition: transform 0.3s ease;
+}
+
+.menu-btn.active {
+    transform: rotate(90deg);
+}
+
+
+/* Sidebar fixa para navegação */
+.sidebar {
+    position: fixed;
+    left: -250px;
+    top: 0;
+    width: 250px;
+    height: 100%;
+    background-color: #141414;
+    padding: 20px;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.7);
+    color: #fff;
+    transition: left 0.3s ease;
+    z-index: 999;
+}
+
+.sidebar.active {
+    left: 0;
+}
+
+.sidebar h2 {
+    color: #00d9ff;
+    text-align: center;
+    font-size: 1.8em;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin: 20px 0;
+}
+
+.sidebar ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2em;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: color 0.3s ease;
+}
+
+.sidebar ul li a:hover {
+    color: #00ffb3;
+}
+
+.sidebar ul li i {
+    font-size: 1.5em;
+}
+
+/* Conteúdo principal */
+.main-content {
+    margin-left: 0; /* Removemos o margin-left padrão */
+    padding: 80px 20px 20px 20px;
+    color: #fff;
+    transition: margin-left 0.3s ease;
+}
+
+.sidebar.active ~ .main-content {
+    margin-left: 250px;
+}
+
+/* Estilos para o player do YouTube */
+.trailer-container {
+    margin-top: 30px;
+}
+
+.trailer-container h3 {
+    font-size: 1.8em;
+    margin-bottom: 10px;
+    color: #00ffb3;
+}
+
+.trailer-container iframe {
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 217, 255, 0.5);
+}
+
+/* Estilo responsivo */
+@media (max-width: 768px) {
+    .main-content {
+        padding-top: 100px;
+    }
+
+    .sidebar {
+        width: 100%;
+        left: -100%;
+        transition: left 0.3s ease;
+    }
+
+    .sidebar.active {
+        left: 0;
+    }
+
+    .sidebar ul li a {
+        font-size: 1.5em;
+    }
+
+    .sidebar ul li i {
+        font-size: 2em;
+    }
+}
+
+/* Estilo para a página de filmes bem avaliados */
+
+#movieList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.movie-card {
+    background-color: #1f1f1f;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 255, 179, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    width: 220px;
+    text-align: center;
+}
+
+.movie-card img {
+    width: 100%;
+    border-bottom: 3px solid #00d9ff;
+    transition: transform 0.3s ease;
+}
+
+.movie-card:hover img {
+    transform: scale(1.1);
+}
+
+.movie-card .movie-info {
+    padding: 15px;
+}
+
+.movie-card .movie-info h3 {
+    font-size: 1.5em;
+    color: #00d9ff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.movie-card .movie-info p {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.movie-card .movie-info button {
+    background-color: #00ffb3;
+    color: #141414;
+    font-size: 1em;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.movie-card .movie-info button:hover {
+    background-color: #00d9ff;
+    transform: scale(1.05);
+}
+
+/* Navegação para páginas de filmes */
+/* Estilo para os botões de paginação */
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.pagination a {
+    background-color: #00d9ff;
+    color: #141414;
+    border: 2px solid #00d9ff;
+    border-radius: 5px;
+    font-size: 1.2em;
+    padding: 10px 15px;
+    margin: 0 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+.pagination a:hover,
+.pagination a.active {
+    background-color: #00ffb3;
+    color: #141414;
+    border-color: #00ffb3;
+    transform: scale(1.1);
+}
+
+/* Adicionar efeitos para indicar a página atual */
+.pagination a.active {
+    background-color: #00ffb3;
+    color: #141414;
+    border-color: #00ffb3;
+    font-weight: bold;
+}
+
+/* Estilo responsivo */
+@media (max-width: 768px) {
+    .movie-card {
+        width: calc(50% - 20px); /* Ajusta o tamanho para 2 colunas em telas menores */
+    }
+}
+
+@media (max-width: 480px) {
+    .movie-card {
+        width: 100%; /* Ajusta o tamanho para 1 coluna em telas pequenas */
+    }
+}

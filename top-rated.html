@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bem Avaliados</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Ícone de Login no topo -->
+    <div class="top-bar">
+        <a href="#" class="login-icon"><i class="fas fa-user-circle"></i> Login</a>
+    </div>
+
+    <!-- Botão para abrir/fechar a sidebar -->
+    <div class="menu-btn">
+        <i class="fas fa-bars"></i>
+    </div>
+
+    <!-- Sidebar de navegação -->
+    <div class="sidebar">
+        <h2>Navegação</h2>
+        <ul>
+            <li><a href="index.html"><i class="fas fa-home"></i> Página Inicial</a></li>
+            <li><a href="top-rated.html"><i class="fas fa-star"></i> Bem Avaliados</a></li>
+            <li><a href="#"><i class="fas fa-heart"></i> Favoritos</a></li>  
+            <li><a href="#"><i class="fas fa-list"></i> Categorias</a></li>
+        </ul>
+    </div>
+
+    <!-- Conteúdo principal -->
+    <div class="main-content">
+        <h1>Top 100 Filmes Bem Avaliados</h1>
+        <div id="movieList" class="movie-list"></div>
+        <div id="pagination" class="pagination"></div>
+    </div>
+
+    <script src="top-rated.js"></script>
+    <script>
+        // Script para abrir e fechar a sidebar
+        const menuBtn = document.querySelector('.menu-btn');
+        const sidebar = document.querySelector('.sidebar');
+
+        menuBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('active');
+            menuBtn.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

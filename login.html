@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gizmo - Login e Registro</title>
+    <link rel="stylesheet" href="login.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"> <!-- Importação dos ícones -->
+</head>
+<body>
+    <!-- Formulários de Login e Registro -->
+    <div class="container">
+        <div id="loginSection">
+            <h1>Login</h1>
+            <form id="loginForm">
+                <input type="text" id="loginNickname" placeholder="Nickname" required />
+                <input type="password" id="loginPassword" placeholder="Senha" required />
+                <button type="submit">Entrar</button>
+            </form>
+            <button id="switchToRegister">Não tem uma conta? Registre-se</button>
+        </div>
+
+        <div id="registerSection" style="display:none;">
+            <h1>Registro</h1>
+            <form id="registerForm" enctype="multipart/form-data">
+                <input type="text" id="nickname" placeholder="Nickname" required />
+                <input type="email" id="email" placeholder="Email" required />
+                <input type="password" id="password" placeholder="Senha" required />
+                <input type="file" id="profileImage" accept="image/*" />
+                <button type="submit">Registrar</button>
+            </form>
+            <button id="switchToLogin">Já tem uma conta? Faça login</button>
+        </div>
+
+        <div id="message"></div>
+    </div>
+
+    <script src="login.js"></script>
+    <script>
+
+
+        // Script para alternar entre login e registro
+        document.getElementById('switchToRegister').addEventListener('click', () => {
+            document.getElementById('loginSection').style.display = 'none';
+            document.getElementById('registerSection').style.display = 'block';
+        });
+
+        document.getElementById('switchToLogin').addEventListener('click', () => {
+            document.getElementById('registerSection').style.display = 'none';
+            document.getElementById('loginSection').style.display = 'block';
+        });
+    </script>
+</body>
+</html>

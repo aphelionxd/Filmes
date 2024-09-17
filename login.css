@@ -1,0 +1,78 @@
+/* Global Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #6e45e2, #88d3ce);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Container Styles */
+.container {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    width: 340px;
+    position: relative;
+}
+
+/* Form Styles */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+input {
+    padding: 15px;
+    margin-bottom: 15px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    font-size: 16px;
+}
+
+input:focus {
+    border-color: #6e45e2;
+    outline: none;
+}
+
+/* Button Styles */
+button {
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    background: #6e45e2;
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 10px 0;
+}
+
+button:hover {
+    background: #5c37d0;
+}
+
+button:active {
+    background: #4b28a2;
+}
+
+/* Switch Button Styles */
+#switchToLogin, #switchToRegister {
+    background: #888;
+    margin-top: 10px;
+}
+
+#switchToLogin:hover, #switchToRegister:hover {
+    background: #666;
+}
+
+/* Message Styles */
+#message {
+    margin-top: 20px;
+    color: #d9534f;
+}
