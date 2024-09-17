@@ -24,8 +24,9 @@ async function getMovieDetails(movieId) {
 function displayMovieDetails(movie) {
     const movieDetails = document.getElementById('movieDetails');
 
-    const trailerKey = movie.videos.results.length > 0 ? movie.videos.results[0].key : null;
-    const trailerEmbed = trailerKey ? `<iframe width="100%" height="400" src="https://www.youtube.com/embed/${trailerKey}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>` : '<p>Trailer não disponível.</p>';
+    // Procura pelo vídeo que seja um trailer
+    const trailer = movie.videos.results.find(video => video.type === 'Trailer' && video.site === 'YouTube');
+    const trailerEmbed = trailer ? `<iframe width="100%" height="400" src="https://www.youtube.com/embed/${trailer.key}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>` : '<p>Trailer não disponível.</p>';
 
     const moviePoster = movie.poster_path ? `${IMAGE_URL}${movie.poster_path}` : 'placeholder.jpg';
 
@@ -41,8 +42,6 @@ function displayMovieDetails(movie) {
         </div>
     `;
 }
-
-
 
 // Chama a função para buscar detalhes do filme
 getMovieDetails(movieId);

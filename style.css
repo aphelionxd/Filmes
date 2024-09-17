@@ -7,6 +7,7 @@
 }
 
 body {
+    background-image: url(../Filmes/assets/BACKGROUND.jfif);
     background-color: #141414;
     color: #fff;
     display: flex;
@@ -152,6 +153,16 @@ button:hover {
     width: 100%;
     border-radius: 10px;
     margin-bottom: 20px;
+    border: 3px solid ;
+}
+
+/* Div para o fundo semitransparente */
+.movie-info {
+    background-color: rgba(0, 0, 0, 0.6); /* Fundo cinza semitransparente */
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    color: #fff; /* Cor branca para o texto */
 }
 
 #movieDetails p {
@@ -175,7 +186,6 @@ button:hover {
     background-color: #00ffb3;
     transform: scale(1.1);
 }
-
 /* Animações de entrada */
 @keyframes fadeIn {
     from {
@@ -198,7 +208,6 @@ button:hover {
     top: 0;
     right: 0;
     padding: 15px 20px;
-    background-color: #141414;
     z-index: 1000;
 }
 
@@ -447,4 +456,22 @@ button:hover {
     .movie-card {
         width: 100%; /* Ajusta o tamanho para 1 coluna em telas pequenas */
     }
+}
+
+.classification {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.classification img {
+    width: 40px;
+    height: 40px;
+    padding-left: 10px;
+    border-bottom: none;
+}
+
+.classification p {
+    margin: 0;
+    font-size: 14px;
 }
