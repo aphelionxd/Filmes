@@ -1,0 +1,48 @@
+/* categorias.css */
+.container {
+    padding: 20px;
+}
+
+#filters {
+    margin-bottom: 20px;
+}
+
+.filter-group {
+    margin-right: 20px;
+    display: inline-block;
+}
+
+.movie-list {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.movie {
+    width: 180px;
+    margin: 10px;
+    text-align: center;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.page-btn {
+    margin: 0 5px;
+    padding: 5px 10px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.page-btn.active {
+    background-color: #0056b3;
+}
+
+.page-btn.disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}

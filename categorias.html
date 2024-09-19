@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Categorias de Filmes</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="categorias.css">
+    <link rel="stylesheet" href="categorias.js"> <!-- CSS separado -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 </head>
 <body>
@@ -38,19 +39,17 @@
                 <label for="genre">Gênero:</label>
                 <select id="genre">
                     <option value="">Todos</option>
-                    <!-- Aqui você pode adicionar mais opções de gêneros -->
-                    <option value="action">Ação</option>
-                    <option value="comedy">Comédia</option>
-                    <option value="drama">Drama</option>
-                    <option value="horror">Terror</option>
-                    <option value="romance">Romance</option>
+                    <option value="28">Ação</option>
+                    <option value="35">Comédia</option>
+                    <option value="18">Drama</option>
+                    <option value="27">Terror</option>
+                    <option value="10749">Romance</option>
                 </select>
             </div>
             <div class="filter-group">
                 <label for="year">Ano:</label>
                 <select id="year">
                     <option value="">Todos</option>
-                    <!-- Aqui você pode adicionar mais anos -->
                     <option value="2024">2024</option>
                     <option value="2023">2023</option>
                     <option value="2022">2022</option>
@@ -76,80 +75,8 @@
         <div id="pagination" class="pagination"></div>
     </main>
 
+    <script src="categorias.js"></script> <!-- JS separado -->
     <script>
-        const API_KEY = 'e1ffe579c28e70c958ddb9caf25bfe78'; // Sua chave de API
-        const BASE_URL = 'https://api.themoviedb.org/3';
-        const IMAGE_URL = 'https://image.tmdb.org/t/p/w500';
-        const MOVIES_PER_PAGE = 20; // Número de filmes por página
-        let currentPage = 1;
-
-        async function fetchMovies(page, genre, year, rating) {
-            let url = `${BASE_URL}/discover/movie?api_key=${API_KEY}&language=pt-BR&sort_by=popularity.desc&page=${page}&with_genres=${genre}&primary_release_year=${year}&certification_country=BR&certification=${rating}`;
-            try {
-                const response = await fetch(url);
-                if (!response.ok) {
-                    throw new Error(`Erro: ${response.statusText}`);
-                }
-                const data = await response.json();
-                return data;
-            } catch (error) {
-                console.error('Erro ao buscar filmes:', error);
-                return { results: [], total_pages: 1 };
-            }
-        }
-
-        function displayMovies(movies) {
-            const movieList = document.getElementById('movieList');
-            movieList.innerHTML = ''; // Limpa a lista de filmes
-
-            movies.forEach(movie => {
-                const movieItem = document.createElement('div');
-                movieItem.classList.add('movie');
-                const moviePoster = movie.poster_path ? `${IMAGE_URL}${movie.poster_path}` : 'placeholder.jpg';
-                movieItem.innerHTML = `
-                    <img src="${moviePoster}" alt="${movie.title}">
-                    <h3>${movie.title}</h3>
-                    <p>Avaliação: ${movie.vote_average}</p>
-                    <button onclick="goToDetails(${movie.id})">Mais Detalhes</button>
-                `;
-                movieList.appendChild(movieItem);
-            });
-        }
-
-        function setupPagination(totalPages) {
-            const pagination = document.getElementById('pagination');
-            pagination.innerHTML = ''; // Limpa a paginação
-
-            for (let i = 1; i <= totalPages; i++) {
-                const pageBtn = document.createElement('a');
-                pageBtn.classList.add('page-btn');
-                pageBtn.innerText = i;
-                pageBtn.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    currentPage = i;
-                    loadMovies();
-                });
-                pagination.appendChild(pageBtn);
-            }
-        }
-
-        async function loadMovies() {
-            const genre = document.getElementById('genre').value;
-            const year = document.getElementById('year').value;
-            const rating = document.getElementById('rating').value;
-            const data = await fetchMovies(currentPage, genre, year, rating);
-            displayMovies(data.results);
-            setupPagination(data.total_pages);
-        }
-
-        document.getElementById('applyFilters').addEventListener('click', () => {
-            currentPage = 1; // Reinicia para a primeira página ao aplicar filtros
-            loadMovies();
-        });
-
-        // Inicializa a lista de filmes na primeira carga
-        loadMovies();
-
         // Script para abrir e fechar a sidebar
         const menuBtn = document.querySelector('.menu-btn');
         const sidebar = document.querySelector('.sidebar');
