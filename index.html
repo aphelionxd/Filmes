@@ -8,39 +8,39 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"> <!-- Importação dos ícones -->
 </head>
 <body>
-    <!-- Ícone de Login no topo -->
-    <div class="top-bar">
-        <a href="login.html" class="login-icon"><i class="fas fa-user-circle"></i> Login</a>
-    </div>
+    <!-- Barra superior com ícone de login -->
+    <header class="top-bar">
+        <a href="login.html" class="login-icon" aria-label="Login">
+            <i class="fas fa-user-circle"></i> Login
+        </a>
+    </header>
 
     <!-- Botão para abrir/fechar a sidebar -->
-    <div class="menu-btn">
+    <div class="menu-btn" aria-label="Abrir menu">
         <i class="fas fa-bars"></i>
     </div>
 
     <!-- Sidebar de navegação -->
-    <div class="sidebar">
+    <nav class="sidebar" aria-label="Navegação principal">
         <h2>Navegação</h2>
         <ul>
             <li><a href="index.html"><i class="fas fa-home"></i> Página Inicial</a></li>
             <li><a href="top-rated.html"><i class="fas fa-star"></i> Bem Avaliados</a></li>
             <li><a href="#"><i class="fas fa-heart"></i> Favoritos</a></li>
-            <li><a href="#"><i class="fas fa-list"></i> Categorias</a></li>
+            <li><a href="categorias.html"><i class="fas fa-list"></i> Categorias</a></li>
         </ul>
-    </div>
+    </nav>
 
-
-    <div class="container">
+    <main class="container">
         <h1>Busque Filmes no Gizmo</h1>
-        <form id="searchForm">
-            <input type="text" id="searchInput" placeholder="Digite o nome do filme..." required>
+        <form id="searchForm" role="search">
+            <input type="text" id="searchInput" placeholder="Digite o nome do filme..." required aria-label="Busca de filme">
             <button type="submit">Buscar</button>
         </form>
-        <div id="movieList"></div>
-    </div>
+        <div id="movieList" aria-live="polite"></div>
+    </main>
 
     <script src="script.js"></script>
-
     <script>
         // Script para abrir e fechar a sidebar
         const menuBtn = document.querySelector('.menu-btn');
