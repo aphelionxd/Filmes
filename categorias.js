@@ -44,6 +44,11 @@ function displayMovies(movies) {
     });
 }
 
+// Função para redirecionar para a página de detalhes
+function goToDetails(movieId) {
+    window.location.href = `detalhes.html?id=${movieId}`;
+}
+
 // Função para configurar a paginação
 function setupPagination() {
     const pagination = document.getElementById('pagination');

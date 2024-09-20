@@ -195,7 +195,11 @@ button:hover {
     font-size: 1.2em;
     margin-bottom: 15px;
     line-height: 1.5;
+    background-color: rgba(128, 128, 128, 0.568);
+    border-radius: 30px;
+    border: 2px solid #00d9ff;
 }
+
 
 #movieDetails a {
     display: inline-block;

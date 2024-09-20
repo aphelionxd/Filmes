@@ -1,48 +1,209 @@
-/* categorias.css */
-.container {
-    padding: 20px;
+/* Configurações básicas */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
 
+body {
+    background-image: url(../Filmes/assets/BACKGROUND.jfif);
+    background-color: #141414;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 50px auto;
+    text-align: center;
+    animation: fadeIn 0.8s ease forwards;
+}
+
+h1 {
+    font-size: 3em;
+    font-weight: bold;
+    color: #00d9ff;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    animation: text-glow 1.5s infinite alternate, slideIn 0.5s ease forwards;
+}
+
+/* Filtros */
 #filters {
-    margin-bottom: 20px;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    animation: fadeIn 0.8s ease forwards;
 }
 
 .filter-group {
-    margin-right: 20px;
     display: inline-block;
 }
 
+select {
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #1f1f1f;
+    color: #00d9ff;
+    border: none;
+    outline: none;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+select:hover {
+    background-color: #2a2a2a;
+    box-shadow: 0 0 10px rgba(0, 217, 255, 0.5);
+}
+
+button {
+    background-color: #00d9ff;
+    color: #141414;
+    font-size: 1.2em;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+    background-color: #00ffb3;
+    transform: scale(1.1);
+}
+
+/* Lista de filmes */
 .movie-list {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 20px;
+    opacity: 0;
+    animation: fadeIn 1s ease forwards;
 }
 
 .movie {
-    width: 180px;
-    margin: 10px;
+    background-color: #1f1f1f;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 255, 179, 0.1);
+    overflow: hidden;
+    width: 220px;
     text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
 }
 
+.movie:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 255, 179, 0.5);
+    background-color: #2a2a2a;
+}
+
+.movie img {
+    width: 100%;
+    border-bottom: 3px solid #00d9ff;
+    transition: transform 0.3s ease;
+}
+
+.movie:hover img {
+    transform: scale(1.1);
+}
+
+.movie h3 {
+    font-size: 1.5em;
+    padding: 15px;
+    color: #00d9ff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.movie p {
+    font-size: 1em;
+    color: #fff;
+    margin-bottom: 15px;
+}
+
+.movie button {
+    background-color: #00ffb3;
+    color: #141414;
+    font-size: 1em;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.movie button:hover {
+    background-color: #00d9ff;
+    transform: scale(1.05);
+}
+
+/* Paginação */
 .pagination {
     display: flex;
     justify-content: center;
-    margin-top: 20px;
+    margin-top: 30px;
 }
 
 .page-btn {
     margin: 0 5px;
-    padding: 5px 10px;
-    background-color: #007BFF;
-    color: white;
+    padding: 10px 15px;
+    background-color: #00d9ff;
+    color: #141414;
     border: none;
+    border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.page-btn:hover {
+    background-color: #00ffb3;
+    transform: scale(1.1);
 }
 
 .page-btn.active {
-    background-color: #0056b3;
+    background-color: #00ffb3;
 }
 
 .page-btn.disabled {
     background-color: #ccc;
     cursor: not-allowed;
+}
+
+/* Animações */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes text-glow {
+    0% {
+        text-shadow: 0 0 10px #00d9ff, 0 0 20px #00d9ff, 0 0 30px #00d9ff;
+    }
+    100% {
+        text-shadow: 0 0 20px #00ffb3, 0 0 40px #00ffb3, 0 0 60px #00ffb3;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
